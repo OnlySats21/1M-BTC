@@ -1092,7 +1092,7 @@ async function makeCard(){
   const yrs=[2030,2032,2034,2036,2038,2040,2042,2044];yrs.forEach((y,i)=>{const p=sim.probBy(5,monthsTo(sim.t0,y)),bx=rx+i*86,h=Math.max(3,p*44);x.fillStyle="rgba(247,147,26,.25)";x.fillRect(bx,614-h,62,h);x.fillStyle=C.or;x.fillRect(bx,614-h,62,3);x.fillStyle=C.fg;x.font=Mf(600,14);x.textAlign="center";x.fillText((p<.005?"<1":Math.round(p*100))+"%",bx+31,608-h);x.fillStyle=C.mu;x.font=Mf(500,13);x.fillText(String(y),bx+31,634);x.textAlign="left"});
   x.strokeStyle=C.line;x.lineWidth=1;x.beginPath();x.moveTo(56,651.5);x.lineTo(1144,651.5);x.stroke();
   x.fillStyle=C.mu;x.font=Mf(400,13);x.fillText("2,000 simulated futures · trend fitted to every cycle since 2011 · backtested since 2015 · not financial advice",56,668);
-  x.textAlign="right";x.fillStyle=C.or;x.font=Mf(600,14);x.fillText("1m-btc.vercel.app",1144,668);x.textAlign="left";
+  x.textAlign="right";x.fillStyle=C.or;x.font=Mf(600,14);x.fillText("plebcc.com",1144,668);x.textAlign="left";
   return c;
 }
 let cardBlob=null,postMode="long";
@@ -1122,12 +1122,12 @@ function makePost(mode){
   const last=hist.length?hist[hist.length-1]:null;
   if(mode==="short"){
     const up=ups[0]?factorLine(ups[0].k,s,f):"steady conditions",dn=dns[0]?factorLine(dns[0].k,s,f):null;
-    return `$1M BTC, ${day}: ${f.S.toFixed(0)}/100, ${vName.toLowerCase()}.\n\nUp: ${up}.${dn?"\nDown: "+dn+".":""}\n\nMeter's estimate for the first $1M day: ${fmtMonth(sim.t0,med)}.\n\n1m-btc.vercel.app`;
+    return `$1M BTC, ${day}: ${f.S.toFixed(0)}/100, ${vName.toLowerCase()}.\n\nUp: ${up}.${dn?"\nDown: "+dn+".":""}\n\nMeter's estimate for the first $1M day: ${fmtMonth(sim.t0,med)}.\n\nplebcc.com`;
   }
   let t=`$1M BTC · ${day}\n\nBull score: ${f.S.toFixed(0)}/100 (${vName.toLowerCase()})\nMeter's estimate for the first $1M day: ${fmtMonth(sim.t0,med)}\nModeled odds of $1M by 2035: ${p35}%\n`;
   if(ups.length)t+=`\nPushing it up:\n${ups.map(r=>"• "+factorLine(r.k,s,f)).join("\n")}\n`;
   if(dns.length)t+=`\nHolding it back:\n${dns.map(r=>"• "+factorLine(r.k,s,f)).join("\n")}\n`;
-  t+=`\nThe long game: ${adoptLine(s,f)} That adoption trend (${f.A.toFixed(0)}/100, ${aBand(f.A).toLowerCase()}) is what moves the $1M date. Daily news moves next year's price, not the decade.\n\nTrack it free: 1m-btc.vercel.app`;
+  t+=`\nThe long game: ${adoptLine(s,f)} That adoption trend (${f.A.toFixed(0)}/100, ${aBand(f.A).toLowerCase()}) is what moves the $1M date. Daily news moves next year's price, not the decade.\n\nTrack it free: plebcc.com`;
   return t;
 }
 function postChecks(){
